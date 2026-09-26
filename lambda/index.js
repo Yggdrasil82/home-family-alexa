@@ -4,8 +4,8 @@
 // « Alexa, demande à ma famille d'ajouter du lait et des œufs. »
 
 const Alexa = require('ask-sdk-core');
-const admin = require('firebase-admin');
 const { decouper, cle, phrase } = require('./articles');
+const firestore = require('./firestore');
 
 // Clé Firebase collée dans cle.json depuis la console Alexa (jamais publiée sur GitHub).
 let configuration = {};
@@ -13,16 +13,6 @@ try {
   configuration = require('./cle.json');
 } catch (e) {
   configuration = {};
-}
-
-let base = null;
-function firestore() {
-  if (!configuration.private_key) return null;
-  if (!base) {
-    admin.initializeApp({ credential: admin.credential.cert(configuration) });
-    base = admin.firestore();
-  }
-  return base;
 }
 
 const PAS_CONFIGUREE = "La skill n'est pas encore reliée à Home Family. Colle la clé Firebase dans le fichier cle.json, puis déploie.";
@@ -50,27 +40,15 @@ const AjouterCourses = {
     if (articles.length === 0) {
       return input.responseBuilder.speak("Je n'ai pas compris. " + EXEMPLE).reprompt(EXEMPLE).getResponse();
     }
-    const db = firestore();
-    if (!db) return input.responseBuilder.speak(PAS_CONFIGUREE).getResponse();
+    if (!configuration.private_key) return input.responseBuilder.speak(PAS_CONFIGUREE).getResponse();
 
     // Ce qui est déjà sur la liste (pas encore acheté) n'est pas ajouté une deuxième fois.
-    const enCours = await db.collection('courses').where('done', '==', false).get();
-    const deja = new Set(enCours.docs.map((d) => cle(String(d.get('text') || ''))));
+    const enCours = await firestore.articlesEnCours(configuration);
+    const deja = new Set(enCours.map(cle));
     const nouveaux = articles.filter((a) => !deja.has(cle(a)));
     const presents = articles.filter((a) => deja.has(cle(a)));
 
-    if (nouveaux.length > 0) {
-      const lot = db.batch();
-      nouveaux.forEach((texte) => {
-        lot.set(db.collection('courses').doc(), {
-          text: texte,
-          done: false,
-          addedBy: 'alexa',
-          createdAt: admin.firestore.FieldValue.serverTimestamp(),
-        });
-      });
-      await lot.commit();
-    }
+    if (nouveaux.length > 0) await firestore.ajouter(configuration, nouveaux);
 
     let reponse = nouveaux.length > 0 ? `C'est noté : ${phrase(nouveaux)}.` : '';
     if (presents.length > 0) {
