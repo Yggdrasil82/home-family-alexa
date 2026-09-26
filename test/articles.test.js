@@ -1,0 +1,10 @@
+const assert = require('assert');
+const { decouper, phrase, cle } = require('../lambda/articles');
+assert.deepStrictEqual(decouper('du lait, du pain et six œufs'), ['Lait', 'Pain', '6 œufs']);
+assert.deepStrictEqual(decouper('des tomates à la liste de courses'), ['Tomates']);
+assert.deepStrictEqual(decouper('ajoute du beurre puis deux baguettes'), ['Beurre', '2 baguettes']);
+assert.deepStrictEqual(decouper('500 g de farine'), ['500 g de farine']);
+assert.deepStrictEqual(decouper(''), []);
+assert.strictEqual(phrase(['Lait', 'Pain', '6 œufs']), 'lait, pain et 6 œufs');
+assert.strictEqual(cle('Crème Fraîche'), 'creme fraiche');
+console.log('ok');

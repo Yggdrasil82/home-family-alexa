@@ -1,0 +1,37 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "fr-FR": {
+          "name": "Ma famille",
+          "summary": "Ajoute des articles à la liste de courses de Home Family.",
+          "description": "Skill privée de la famille : « Alexa, demande à ma famille d'ajouter du lait et des œufs » ajoute les articles dans la liste de courses de l'appli Home Family.",
+          "examplePhrases": [
+            "Alexa, demande à ma famille d'ajouter du lait",
+            "Alexa, demande à ma famille de mettre du pain et des œufs",
+            "Alexa, ouvre ma famille"
+          ],
+          "keywords": ["courses", "liste", "famille"]
+        }
+      },
+      "isAvailableWorldwide": false,
+      "distributionCountries": ["FR"],
+      "testingInstructions": "Skill privée, utilisée en mode développement.",
+      "category": "ORGANIZERS_AND_ASSISTANTS"
+    },
+    "apis": {
+      "custom": {}
+    },
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "fr-FR": {}
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}

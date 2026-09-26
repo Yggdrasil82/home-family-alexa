@@ -1,0 +1,39 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "ma famille",
+      "intents": [
+        {
+          "name": "AjouterCoursesIntent",
+          "slots": [
+            { "name": "articles", "type": "AMAZON.SearchQuery" }
+          ],
+          "samples": [
+            "ajoute {articles}",
+            "ajouter {articles}",
+            "d'ajouter {articles}",
+            "rajoute {articles}",
+            "rajouter {articles}",
+            "de rajouter {articles}",
+            "mets {articles}",
+            "mettre {articles}",
+            "de mettre {articles}",
+            "il faut {articles}",
+            "il faudrait {articles}",
+            "on a besoin de {articles}",
+            "achète {articles}",
+            "d'acheter {articles}",
+            "ajoute aux courses {articles}",
+            "ajoute à la liste {articles}"
+          ]
+        },
+        { "name": "AMAZON.HelpIntent", "samples": [] },
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.NavigateHomeIntent", "samples": [] },
+        { "name": "AMAZON.FallbackIntent", "samples": [] }
+      ],
+      "types": []
+    }
+  }
+}
