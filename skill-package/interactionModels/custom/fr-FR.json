@@ -6,7 +6,10 @@
         {
           "name": "AjouterCoursesIntent",
           "slots": [
-            { "name": "articles", "type": "AMAZON.SearchQuery" }
+            {
+              "name": "articles",
+              "type": "AMAZON.SearchQuery"
+            }
           ],
           "samples": [
             "ajoute {articles}",
@@ -24,14 +27,39 @@
             "achète {articles}",
             "d'acheter {articles}",
             "ajoute aux courses {articles}",
-            "ajoute à la liste {articles}"
+            "ajoute à la liste {articles}",
+            "note {articles}",
+            "noter {articles}",
+            "de noter {articles}",
+            "qu'il faut {articles}",
+            "qu'il nous faut {articles}",
+            "qu'on a besoin de {articles}",
+            "qu'il n'y a plus de {articles}",
+            "il n'y a plus de {articles}",
+            "prends {articles}",
+            "de prendre {articles}"
           ]
         },
-        { "name": "AMAZON.HelpIntent", "samples": [] },
-        { "name": "AMAZON.CancelIntent", "samples": [] },
-        { "name": "AMAZON.StopIntent", "samples": [] },
-        { "name": "AMAZON.NavigateHomeIntent", "samples": [] },
-        { "name": "AMAZON.FallbackIntent", "samples": [] }
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        }
       ],
       "types": []
     }

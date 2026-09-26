@@ -4,7 +4,7 @@
 // Même logique que la dictée de l'appli Home Family.
 
 const SEPARATEURS = /\s*(?:,|;|\bvirgule\b|\bpuis\b|\bet aussi\b|\bet\b)\s*/i;
-const DEBUT = /^(?:(?:il faut|il faudrait|ajoute[rz]?|ajouter|d'ajouter|d’ajouter|rajoute[rz]?|mets|mettre|de mettre)\s+)+/i;
+const DEBUT = /^(?:(?:qu'il (?:nous )?faut|il faut|il faudrait|qu'il n'y a plus de|il n'y a plus de|qu'on a besoin de|ajoute[rz]?|ajouter|d'ajouter|d’ajouter|rajoute[rz]?|mets|mettre|de mettre|note[rz]?|de noter|prends|de prendre)\s+)+/i;
 const FIN = /\s+(?:(?:à|a|sur|dans) (?:la|ma) liste(?: de courses| des courses)?|aux courses|dans les courses)\s*$/i;
 const PARTITIF = /^(?:du |de la |de l'|de l’|des |un peu de |un peu d'|un peu d’)/i;
 const NOMBRES = {

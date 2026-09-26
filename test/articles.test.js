@@ -8,3 +8,6 @@ assert.deepStrictEqual(decouper(''), []);
 assert.strictEqual(phrase(['Lait', 'Pain', '6 œufs']), 'lait, pain et 6 œufs');
 assert.strictEqual(cle('Crème Fraîche'), 'creme fraiche');
 console.log('ok');
+assert.deepStrictEqual(decouper("qu'il n'y a plus de beurre"), ['Beurre']);
+assert.deepStrictEqual(decouper('note du pain'), ['Pain']);
+console.log('ok 2');

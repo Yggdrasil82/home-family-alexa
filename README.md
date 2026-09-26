@@ -22,6 +22,8 @@ La skill marche alors sur toutes les enceintes du même compte Amazon.
 
 ## Phrases comprises
 
+- « Alexa, demande à ma famille de noter du lait » (conseillé : « ajouter » est parfois pris par la liste d'Alexa)
+- « Alexa, dis à ma famille qu'il n'y a plus de beurre »
 - « Alexa, demande à ma famille d'ajouter du lait »
 - « Alexa, demande à ma famille de mettre du pain, du beurre et six œufs »
 - « Alexa, ouvre ma famille » puis « ajoute des tomates »
